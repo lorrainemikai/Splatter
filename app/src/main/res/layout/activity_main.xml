@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.epicodus.splatter"
+    android:background="#000000">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/home" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Splatter"
+        android:layout_marginTop="35dp"
+        android:id="@+id/textView"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/introView"
+        android:layout_width="271dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startDiscoveryButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="45dp"
+        android:text="@string/intro"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/startDiscoveryButton"
+        android:layout_width="269dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="142dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginLeft="45dp"
+        android:background="@drawable/button_bg_transparent"
+        android:text="Start Discovery"
+        android:textColor="@color/colorTextIcons" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="158dp"
+        android:layout_height="65dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView"
+        app:srcCompat="@drawable/splash" />
+
+</RelativeLayout>
