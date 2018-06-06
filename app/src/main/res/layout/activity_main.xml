@@ -17,15 +17,15 @@
         android:src="@drawable/home" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Splatter"
-        android:layout_marginTop="35dp"
         android:id="@+id/textView"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="71dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="Splatter"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <TextView
@@ -56,10 +56,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="158dp"
-        android:layout_height="65dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/textView"
+        android:layout_width="121dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
         app:srcCompat="@drawable/splash" />
 
 </RelativeLayout>
