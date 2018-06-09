@@ -4,13 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
     public class HomeActivity extends AppCompatActivity {
-        @Bind(R.id.listView)
-        ListView mListView;
         private String[] images = new String[] {"Mi Mero Mole", "Mother's Bistro",
                 "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
                 "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
