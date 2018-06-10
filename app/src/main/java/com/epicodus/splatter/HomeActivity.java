@@ -1,27 +1,38 @@
 package com.epicodus.splatter;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 
     public class HomeActivity extends AppCompatActivity {
-        private String[] images = new String[] {"Mi Mero Mole", "Mother's Bistro",
-                "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
-                "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
-                "Lardo", "Portland City Grill", "Fat Head's Brewery",
-                "Chipotle", "Subway"};
+        private Button mSearchButton;
+        private EditText mSearchText;
 
-    private ListView mListView;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_home);
+            mSearchButton = (Button) findViewById(R.id.Search);
+            mSearchText = (EditText) findViewById(R.id.SearchText);
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
-        mListView = (ListView) findViewById(R.id.listView);
-        ArrayAdapter adapter = new ArrayAdapter(this,  android.R.layout.simple_list_item_1, images);
-            mListView.setAdapter(adapter);
+            mSearchButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String search = mSearchText.getText().toString();
+//
+                    Intent intent = new Intent(HomeActivity.this, GalleryActivity.class);
+
+                    startActivity(intent);
+
+                }
+            });
+
+        }
     }
-}

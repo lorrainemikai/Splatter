@@ -37,7 +37,7 @@
         />
 
     <EditText
-        android:id="@+id/locationEditText"
+        android:id="@+id/SearchText"
         android:layout_width="257dp"
         android:layout_height="43dp"
         android:layout_alignParentEnd="true"
@@ -52,7 +52,7 @@
         android:id="@+id/imageView3"
         android:layout_width="29dp"
         android:layout_height="41dp"
-        android:layout_alignBottom="@+id/locationEditText"
+        android:layout_alignBottom="@+id/SearchText"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="45dp"
         app:srcCompat="@drawable/search" />
@@ -60,9 +60,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp">
+        android:layout_alignParentTop="true">
 
         <ListView
             android:id="@+id/listView"
@@ -70,5 +69,17 @@
             android:layout_height="273dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/Search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="35dp"
+            android:layout_marginTop="165dp"
+            android:background="@drawable/button_bg_transparent"
+            android:text="Search"
+            android:textColor="@color/colorTextIcons" />
     </RelativeLayout>
 </RelativeLayout>
