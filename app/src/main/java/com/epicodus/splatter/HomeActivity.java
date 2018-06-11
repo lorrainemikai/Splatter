@@ -18,8 +18,8 @@ import android.widget.ListView;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_home);
-            mSearchButton = (Button) findViewById(R.id.Search);
-            mSearchText = (EditText) findViewById(R.id.SearchText);
+            mSearchButton = (Button) findViewById(R.id.search);
+            mSearchText = (EditText) findViewById(R.id.searchText);
 
 
             mSearchButton.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +28,7 @@ import android.widget.ListView;
                     String search = mSearchText.getText().toString();
 //
                     Intent intent = new Intent(HomeActivity.this, GalleryActivity.class);
-
+                    intent.putExtra("currentBook", search);
                     startActivity(intent);
 
                 }
