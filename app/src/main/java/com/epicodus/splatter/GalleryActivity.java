@@ -14,22 +14,26 @@ import okhttp3.Response;
 
 public class GalleryActivity extends AppCompatActivity {
     public static final String TAG = HomeActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
-         }
-    private void getImages(String name){
+        getImages(query);
 
     }
+
+    private void getImages(String query) {
+
+
         final UnsplashService unsplashService = new UnsplashService();
-        unsplashService.findImages(query, new Callback(){
+        unsplashService.search(query, new Callback() {
             @Override
-            public void onFailure(Call call , IOException e){
+            public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
 
             }
+
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String jsonData = response.body().toString();
@@ -37,4 +41,5 @@ public class GalleryActivity extends AppCompatActivity {
             }
 
         });
+    }
 }

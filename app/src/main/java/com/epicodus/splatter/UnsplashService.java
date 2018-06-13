@@ -29,7 +29,7 @@ public class UnsplashService {
     public static void search(String query, Callback callback) {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.UNSPLASH_BASE_URL).newBuilder();
         String url = urlBuilder
-                .addQueryParameter(Constants.UNSPLASH_NAME_QUERY_PARAMETER,query)
+                .addQueryParameter(Constants.UNSPLASH_NAME_QUERY_PARAMETER, query)
                 .build().toString();
 
         Request request = new Request.Builder().header("Authorization", "Client-ID " + Constants.UNSPLASH_ACCESS_KEY)
@@ -48,7 +48,8 @@ public class UnsplashService {
                 // The response JSON is an array of business objects within an object so we need to get that array
                 JSONObject unsplashJSON = new JSONObject(jsonData);
                 JSONArray carsJSON = unsplashJSON.getJSONArray("results");
-                Type collectionType = new TypeToken<List<Image>>() {}.getType();
+                Type collectionType = new TypeToken<List<Image>>() {
+                }.getType();
                 Gson gson = new GsonBuilder().create();
                 images = gson.fromJson(carsJSON.toString(), collectionType);
             }
@@ -59,7 +60,4 @@ public class UnsplashService {
         return images;
     }
 
-    public void findImages(String name, Callback callback) {
-    }
 }
-
