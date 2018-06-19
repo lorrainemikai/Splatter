@@ -6,8 +6,8 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="130dp"
-        android:layout_height="100dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/galleryImageView"
         tools:src="@drawable/bg"
         android:scaleType="centerCrop"/>
