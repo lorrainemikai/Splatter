@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
                     String search = mSearchText.getText().toString();
 //
                     Intent intent = new Intent(HomeActivity.this, GalleryActivity.class);
-                    intent.putExtra("query", search);
+                    intent.putExtra("search", search);
                     startActivity(intent);
 
                 }
@@ -49,4 +49,3 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
-    }

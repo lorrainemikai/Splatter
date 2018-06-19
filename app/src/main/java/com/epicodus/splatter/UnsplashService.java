@@ -1,7 +1,6 @@
 package com.epicodus.splatter;
 
 
-import android.media.session.MediaSession;
 
 import com.epicodus.splatter.models.Image;
 import com.google.gson.Gson;
@@ -17,6 +16,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.OkHttpClient;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
@@ -24,9 +24,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class UnsplashService {
-    private static Call.Factory client;
 
     public static void search(String query, Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder().build();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.UNSPLASH_BASE_URL).newBuilder();
         String url = urlBuilder
                 .addQueryParameter(Constants.UNSPLASH_NAME_QUERY_PARAMETER, query)
@@ -37,7 +37,7 @@ public class UnsplashService {
 
                 .build();
         Call call = client.newCall(request);
-        call.enqueue((okhttp3.Callback) callback);
+        call.enqueue(callback);
     }
 
     public List<Image> processResults(Response response) {
