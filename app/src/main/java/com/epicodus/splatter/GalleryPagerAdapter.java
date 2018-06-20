@@ -1,4 +1,7 @@
 package com.epicodus.splatter;
 
-public class GalleryPagerAdapter {
-}
+import android.app.FragmentManager;
+import android.widget.Gallery;
+
+import java.util.ArrayList;
+
