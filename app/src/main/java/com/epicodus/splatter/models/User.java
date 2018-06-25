@@ -1,28 +1,30 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Parcel
 public class User {
 
-    private String id;
-    private String updatedAt;
-    private String username;
-    private String name;
-    private String firstName;
-    private String lastName;
-    private Object twitterUsername;
-    private Object portfolioUrl;
-    private String bio;
-    private String location;
-    private Links_ links;
-    private ProfileImage profileImage;
-    private String instagramUsername;
-    private Integer totalCollections;
-    private Integer totalLikes;
-    private Integer totalPhotos;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String id;
+     String updatedAt;
+     String username;
+     String name;
+     String firstName;
+     String lastName;
+    transient Object twitterUsername;
+    transient Object portfolioUrl;
+     String bio;
+     String location;
+     Links_ links;
+     ProfileImage profileImage;
+     String instagramUsername;
+     Integer totalCollections;
+     Integer totalLikes;
+     Integer totalPhotos;
+    transient Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization

@@ -1,16 +1,18 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Parcel
 public class Links {
 
-    private String self;
-    private String html;
-    private String download;
-    private String downloadLocation;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String self;
+     String html;
+     String download;
+     String downloadLocation;
+     transient  Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization

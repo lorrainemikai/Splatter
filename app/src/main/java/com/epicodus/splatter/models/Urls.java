@@ -1,17 +1,19 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Parcel
 public class Urls {
 
-    private String raw;
-    private String full;
-    private String regular;
-    private String small;
-    private String thumb;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String raw;
+     String full;
+     String regular;
+     String small;
+     String thumb;
+     transient Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization

@@ -2,15 +2,14 @@ package com.epicodus.splatter;
 
 
 import android.os.Bundle;
-import android.os.Parcel;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.splatter.models.Image;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -28,23 +27,24 @@ public class GalleryDetailFragement extends Fragment {
     @BindView(R.id.galleryNameTextView)TextView mGalleryNameTextView;
     @BindView(R.id.savePhoto) TextView mSavePhoto;
 
+    private Image mImage;
 
-    private Gallery mGallery;
-
-    public GalleryDetailFragement newInstance(Gallery gallery) {
+    public static GalleryDetailFragement newInstance(Image image) {
         GalleryDetailFragement galleryDetailFragement = new GalleryDetailFragement();
         Bundle args = new Bundle();
-        args.putParcelable("gallery", Parcels.wrap(gallery));
+
+        args.putParcelable("image", Parcels.wrap(image));
         galleryDetailFragement.setArguments(args);
+
         return galleryDetailFragement;
-        }
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            mGallery = Parcels.unwrap(getArguments().getParcelable("gallery"));
+    }
 
-        }
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mImage = Parcels.unwrap(getArguments().getParcelable("image"));
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,9 +53,10 @@ public class GalleryDetailFragement extends Fragment {
         // Inflate the layout for this fragment
         ButterKnife.bind(this,view);
 
-        Picasso.with(view.getContext()).load(mGalleryImageView.getId());
-        mGalleryNameTextView.setText(mGalleryNameTextView.getText());
-return view;
+        Picasso.with(view.getContext()).load(mImage.getUrls().getRegular()).into(mGalleryImageView);
+        mGalleryNameTextView.setText(mImage.getDescription());
+
+        return view;
     }
 
 }

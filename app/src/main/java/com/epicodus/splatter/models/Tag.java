@@ -1,13 +1,15 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Parcel
 public class Tag {
 
-    private String title;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String title;
+     transient Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization

@@ -1,20 +1,22 @@
 package com.epicodus.splatter.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.epicodus.splatter.GalleryDetailActivity;
 import com.epicodus.splatter.R;
 import com.epicodus.splatter.models.Image;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,8 +29,8 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
     private Context mContext;
 
     public GalleryListAdapter(Context context, List<Image> myGallery) {
-        mContext = context;
         mGallery = myGallery;
+        mContext = context;
     }
 
     @Override
@@ -53,7 +55,7 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
     }
 
 
-    public class GalleryViewHolder extends RecyclerView.ViewHolder {
+    public class GalleryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @BindView(R.id.galleryImageView)
         ImageView mGalleryImageView;
         @BindView(R.id.galleryNameTextView)
@@ -62,6 +64,7 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
         public GalleryViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
         }
 
         public void bindImage(Image image) {
@@ -69,53 +72,16 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
             Log.d("recyclerView", "bindImage: "+image.getDescription());
                 mNameTextView.setText(image.getDescription());
         }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, GalleryDetailActivity.class);
+            intent.putExtra("position",itemPosition);
+            intent.putExtra("gallery", Parcels.wrap(mGallery));
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
+        }
     }
+
 }
-//}
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_gallery);
-//        getImages("query");
-//
-//        mWhatResult = (TextView) findViewById(R.id.whatResult);
-//
-//        Intent intent = getIntent();
-//        String search = intent.getStringExtra("search");
-//        mWhatResult.setText("" + search + "");
-//
-//    }
-//
-//    private void getImages(String query) {
-//
-//
-//        final UnsplashService unsplashService = new UnsplashService();
-//        unsplashService.search(query, new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                e.printStackTrace();
-//
-//            }
-//
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                try {
-//                    String jsonData = response.body().string();
-//                    Log.v(TAG, jsonData);
-//                    images =  unsplashService.processResults(response);
-//                    GalleryActivity.this.runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-////                            String[] imageNames = new String[mWhatResult.name()];
-////                            for (int i = 0; i<imageNames.length;i++){
-////                                imageNames[i] =mWhatResult.get(i).getName();
-////                            }
-//                        }
-//                    });
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//    }

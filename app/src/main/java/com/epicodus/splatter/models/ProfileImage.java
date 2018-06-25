@@ -1,15 +1,17 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Parcel
 public class ProfileImage {
 
-    private String small;
-    private String medium;
-    private String large;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String small;
+     String medium;
+     String large;
+     transient Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization

@@ -1,31 +1,34 @@
 
 package com.epicodus.splatter.models;
 
+import org.parceler.Parcel;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Parcel
 public class Image {
 
-    private String id;
-    private String createdAt;
-    private String updatedAt;
-    private Integer width;
-    private Integer height;
-    private String color;
-    private String description;
-    private Urls urls;
-    private Links links;
-    private List<Object> categories = null;
-    private Boolean sponsored;
-    private Integer likes;
-    private Boolean likedByUser;
-    private List<Object> currentUserCollections = null;
-    private Object slug;
-    private User user;
-    private List<Tag> tags = null;
-    private List<PhotoTag> photoTags = null;
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+     String id;
+     String createdAt;
+     String updatedAt;
+     Integer width;
+     Integer height;
+     String color;
+     String description;
+     Urls urls;
+     Links links;
+    transient List <Object> categories = null;
+     Boolean sponsored;
+     Integer likes;
+     Boolean likedByUser;
+     transient List<Object> currentUserCollections = null;
+    transient Object slug;
+     User user;
+     List<Tag> tags = null;
+     List<PhotoTag> photoTags = null;
+     transient Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     /**
      * No args constructor for use in serialization
